@@ -180,7 +180,13 @@ function removeGame(index){
     fetch(apiUrl)
     .then(response => response.json())
     .then(data => {
-      console.log(data)
+      const gameInfo = data.info;
+      const retailPrice = data.deals[0].retailPrice
+
+      const gameDetails = {
+        title: gameInfo.title,
+        retailPrice: retailPrice
+      }
     })
   .catch(error => {
     console.error('error on the original price fetch request', error);
@@ -198,5 +204,4 @@ function fetchFavoriteGamesDetails() {
 }
 
 favoriteGamesRefresh()
-fetchFavoriteGamesDetails()
-fetchSelectedGamesDetails()
+
