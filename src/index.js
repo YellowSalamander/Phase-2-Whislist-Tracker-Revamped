@@ -86,3 +86,21 @@ function addGameToPage(game) {
   `;
   document.getElementById('game-results').appendChild(gameElement);
 }
+function favoriteGamesRefresh() {
+  const favGames = [`Divinity: Original Sin 2 - Eternal Edition`, `Stellaris`, `Project Wingman`]
+  favGames.forEach(game => {
+    const apiUrl = `https://www.cheapshark.com/api/1.0/games?title=${encodeURIComponent(game)}&limit=1`
+    fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+    .catch(error => {
+      console.error(`error in fetch for fav games`, error)
+    })
+  })
+
+
+
+}
+favoriteGamesRefresh()
