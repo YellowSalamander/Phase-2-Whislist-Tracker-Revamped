@@ -125,7 +125,7 @@ function renderSelectedGames(selectedGames) {
   const selectedGamesContainer = document.getElementById('selected-games');
   selectedGamesContainer.innerHTML = '';
 
-  selectedGames.forEach((game) => {
+  selectedGames.forEach((game, index) => {
     const gameElement = document.createElement('div');
     gameElement.className = 'selectedGame';
     gameElement.innerHTML = `
@@ -135,6 +135,7 @@ function renderSelectedGames(selectedGames) {
         <p>Cheapest Price: ${game.cheapest} $ USD</p>
       </div>
     `;
+    addRemoveButton(gameElement, index)
     addGetDealButton(gameElement, game.external)
     selectedGamesContainer.appendChild(gameElement);
   });
@@ -153,6 +154,24 @@ function getDeal(gameTitle){
   console.log(`Get deal for game: ${gameTitle}`)
   alert(`Pretend page redirected user to storefront for game: ${gameTitle}`)
 }
+
+function addRemoveButton(gameElement, index){
+  const removeButton = document.createElement('button');
+  removeButton.textContent = "Remove Game From Wishlist"
+  removeButton.addEventListener('click', () => { 
+    removeGame(index)
+  })
+  gameElement.querySelector('.details').appendChild(removeButton)
+}
+
+function removeGame(index){
+  if (index >= 0 && index < selectedGames.length) {
+    selectedGames.splice(index, 1); // Remove the game from the selectedGames array
+    renderSelectedGames(selectedGames); // Re-render the selected games after removal
+  }
+  
+  }
+
 
 favoriteGamesRefresh()
 
