@@ -53,7 +53,7 @@ function selectGame(index) {
   if (index >= 0 && index < searchResults.length) {
     const selectedGame = searchResults[index];
     selectedGames.push(selectedGame); // Add selected game to the selectedGames array
-    addGameToPage(selectedGame);
+    addSearchToPage(selectedGame);
     console.log(selectedGames)
     clearSearchResults()
     renderSelectedGames(selectedGames)
@@ -78,7 +78,7 @@ function getGamesByTitle(title) {
     });
 }
 
-function addGameToPage(game) {
+function addSearchToPage(game) {
   const gameElement = document.createElement('div');
   gameElement.className = 'game';
   gameElement.innerHTML = `
@@ -90,6 +90,8 @@ function addGameToPage(game) {
   `;
   document.getElementById('game-results').appendChild(gameElement);
 }
+
+// Refreshes favorite game data and renders it on the top of the page
 function favoriteGamesRefresh() {
   const favGames = [`Divinity: Original Sin 2 - Eternal Edition`, `Stellaris`, `Project Wingman`]
   favGames.forEach((game, index) => {
@@ -116,6 +118,7 @@ function favoriteGamesRefresh() {
     })
   })
 }
+// This function serves to render the selected games array and appends it to the html page
 function renderSelectedGames(selectedGames) {
   const selectedGamesContainer = document.getElementById('selected-games');
   selectedGamesContainer.innerHTML = '';
