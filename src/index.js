@@ -41,7 +41,7 @@ function displaySearchResults() {
       <img src="${game.thumb}" alt="${game.external}">
       <div class="details">
         <h4>${game.external}</h4>
-        <p>${game.cheapest}</p>
+        <p>Cheapest Price: ${game.cheapest} $USD</p>
         <button onclick="selectGame(${index})">Select</button>
       </div>
     `;
@@ -81,7 +81,7 @@ function addGameToPage(game) {
     <img src="${game.thumb}" alt="${game.external}">
     <div class="details">
       <h4>${game.external}</h4>
-      <p>${game.cheapest}</p>
+      <p> Cheapest Price: ${game.cheapest}$ USD</p>
     </div>
   `;
   document.getElementById('game-results').appendChild(gameElement);
