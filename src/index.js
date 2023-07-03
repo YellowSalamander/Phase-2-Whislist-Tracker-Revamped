@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let searchResults = [];
-let selectedGame = [];
+let selectedGames = [];
 function searchGames() {
   const searchTerm = document.getElementById('game-search-input').value;
 
@@ -36,7 +36,7 @@ function displaySearchResults() {
 
   searchResults.forEach((game, index) => {
     const gameElement = document.createElement('div');
-    gameElement.className = 'game';
+    gameElement.className = 'gameSearch';
     gameElement.innerHTML = `
       <img src="${game.thumb}" alt="${game.external}">
       <div class="details">
@@ -53,8 +53,9 @@ function selectGame(index) {
   if (index >= 0 && index < searchResults.length) {
     const selectedGame = searchResults[index];
     selectedGames.push(selectedGame); // Add selected game to the selectedGames array
-    addGameToPage(selectedGame);
-    console.log(selectedGame)
+    addGameToPage(selectedGames);
+    console.log(selectedGames)
+    clearSearchResults()
   }
 
 }
