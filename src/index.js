@@ -53,9 +53,10 @@ function selectGame(index) {
   if (index >= 0 && index < searchResults.length) {
     const selectedGame = searchResults[index];
     selectedGames.push(selectedGame); // Add selected game to the selectedGames array
-    addGameToPage(selectedGames);
+    addGameToPage(selectedGame);
     console.log(selectedGames)
     clearSearchResults()
+    renderSelectedGames(selectedGames)
   }
 
 }
@@ -114,8 +115,25 @@ function favoriteGamesRefresh() {
       console.error(`error in fetch for fav games`, error)
     })
   })
-
-
-
 }
+function renderSelectedGames(selectedGames) {
+  const selectedGamesContainer = document.getElementById('selected-games');
+  selectedGamesContainer.innerHTML = '';
+
+  selectedGames.forEach((game) => {
+    const gameElement = document.createElement('div');
+    gameElement.className = 'selectedGame';
+    gameElement.innerHTML = `
+      <img src="${game.thumb}" alt="${game.external}">
+      <div class="details">
+        <h4>${game.external}</h4>
+        <p>Cheapest Price: ${game.cheapest} $ USD</p>
+      </div>
+    `;
+    selectedGamesContainer.appendChild(gameElement);
+  });
+}
+
+
 favoriteGamesRefresh()
+
