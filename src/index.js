@@ -104,7 +104,7 @@ function favoriteGamesRefresh() {
         imgElement.src = gameInfo.thumb
         imgElement.alt = gameInfo.external
         h4Element.textContent = gameInfo.external;
-        priceElement.textContent = `Cheapest Price: ${gameInfo.cheapest}`;
+        priceElement.textContent = `Cheapest Price: ${gameInfo.cheapest} $ USD`;
       }
     })
     .catch(error => {
