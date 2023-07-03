@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let searchResults = [];
 let selectedGames = [];
+let favoriteGames = []
 function searchGames() {
   const searchTerm = document.getElementById('game-search-input').value;
 
@@ -103,6 +104,7 @@ function favoriteGamesRefresh() {
       console.log(data)
       const gameInfo = data[0]
       if (gameInfo){
+        favoriteGames.push(gameInfo)
         const gameElement = document.querySelector(`.fixedGame${index + 1}`);
         const imgElement = gameElement.querySelector('img');
         const h4Element = gameElement.querySelector("h4");
@@ -154,7 +156,7 @@ function getDeal(gameTitle){
   console.log(`Get deal for game: ${gameTitle}`)
   alert(`Pretend page redirected user to storefront for game: ${gameTitle}`)
 }
-
+// adds the remove button
 function addRemoveButton(gameElement, index){
   const removeButton = document.createElement('button');
   removeButton.textContent = "Remove Game From Wishlist"
@@ -163,7 +165,7 @@ function addRemoveButton(gameElement, index){
   })
   gameElement.querySelector('.details').appendChild(removeButton)
 }
-
+// handles game removal
 function removeGame(index){
   if (index >= 0 && index < selectedGames.length) {
     selectedGames.splice(index, 1); // Remove the game from the selectedGames array
@@ -172,6 +174,29 @@ function removeGame(index){
   
   }
 
+  function fetchGameDetails(gameID){
+    const apiUrl = `https://www.cheapshark.com/api/1.0/games?id=${gameID}`
+    
+    fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+    })
+  .catch(error => {
+    console.error('error on the original price fetch request', error);
+  })
+  }
+function fetchSelectedGamesDetails(){
+    selectedGames.forEach(game => {
+      fetchGameDetails(game.gameID)
+    })
+  }
+function fetchFavoriteGamesDetails() {
+  favoriteGames.forEach(game => {
+    fetchGameDetails(game.gameID)
+  })
+}
 
 favoriteGamesRefresh()
-
+fetchFavoriteGamesDetails()
+fetchSelectedGamesDetails()
