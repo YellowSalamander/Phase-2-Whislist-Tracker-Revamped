@@ -24,7 +24,7 @@ function searchGames() {
       console.error('Error:', error);
     });
 }
-// In theory also supports render of search bar, needs to be double checked tho
+// handles search bar initially
 function displaySearchResults() {
   const resultsContainer = document.getElementById('game-results');
   resultsContainer.innerHTML = '';
@@ -53,7 +53,7 @@ function selectGame(index) {
   if (index >= 0 && index < searchResults.length) {
     const selectedGame = searchResults[index];
     selectedGames.push(selectedGame); // Add selected game to the selectedGames array
-    addSearchToPage(selectedGame);
+    initialRenderofGametoPage(selectedGame);
     console.log(selectedGames)
     clearSearchResults()
     renderSelectedGames(selectedGames)
@@ -78,8 +78,8 @@ function getGamesByTitle(title) {
       console.error('Error:', error);
     });
 }
-// visualization of the search bar selection
-function addSearchToPage(game) {
+// visualization of the search bar selection, favorite games, essential for main page load ** change function name**
+function initialRenderofGametoPage(game) {
   const gameElement = document.createElement('div');
   gameElement.className = 'game';
   gameElement.innerHTML = `
@@ -112,6 +112,7 @@ function favoriteGamesRefresh() {
         imgElement.alt = gameInfo.external
         h4Element.textContent = gameInfo.external;
         priceElement.textContent = `Cheapest Price: ${gameInfo.cheapest} $ USD`;
+        addGetDealButton(gameElement, gameInfo.external)
       }
     })
     .catch(error => {
@@ -134,10 +135,24 @@ function renderSelectedGames(selectedGames) {
         <p>Cheapest Price: ${game.cheapest} $ USD</p>
       </div>
     `;
+    addGetDealButton(gameElement, game.external)
     selectedGamesContainer.appendChild(gameElement);
   });
 }
-
+// adds a button to all rendered games (except search bar results)
+function addGetDealButton(gameElement, gameTitle){
+  const buttonElement = document.createElement('button');
+  buttonElement.textContent = 'Get Deal';
+  buttonElement.addEventListener('click' , () => {
+    getDeal(gameTitle);
+  })
+  gameElement.querySelector('.details').appendChild(buttonElement)
+}
+// handles click of the get a deal button
+function getDeal(gameTitle){
+  console.log(`Get deal for game: ${gameTitle}`)
+  alert(`Pretend page redirected user to storefront for game: ${gameTitle}`)
+}
 
 favoriteGamesRefresh()
 
