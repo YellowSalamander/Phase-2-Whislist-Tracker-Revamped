@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let searchResults = [];
-let selectedGames = [];
+let selectedGame = [];
 function searchGames() {
   const searchTerm = document.getElementById('game-search-input').value;
 
@@ -54,6 +54,7 @@ function selectGame(index) {
     const selectedGame = searchResults[index];
     selectedGames.push(selectedGame); // Add selected game to the selectedGames array
     addGameToPage(selectedGame);
+    console.log(selectedGame)
   }
 
 }
