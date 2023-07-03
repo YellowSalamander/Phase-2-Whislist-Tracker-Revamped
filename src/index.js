@@ -24,7 +24,7 @@ function searchGames() {
       console.error('Error:', error);
     });
 }
-
+// In theory also supports render of search bar, needs to be double checked tho
 function displaySearchResults() {
   const resultsContainer = document.getElementById('game-results');
   resultsContainer.innerHTML = '';
@@ -48,7 +48,7 @@ function displaySearchResults() {
     resultsContainer.appendChild(gameElement);
   });
 }
-
+//handles selection
 function selectGame(index) {
   if (index >= 0 && index < searchResults.length) {
     const selectedGame = searchResults[index];
@@ -60,11 +60,12 @@ function selectGame(index) {
   }
 
 }
+//clears the search bar after selecting a game to track
 function clearSearchResults() {
   const resultsContainer = document.getElementById('game-results');
   resultsContainer.innerHTML = '';
 }
-
+//fetch request by title
 function getGamesByTitle(title) {
   const apiUrl = `https://www.cheapshark.com/api/1.0/games?title=${encodeURIComponent(title)}&limit=5`;
 
@@ -77,7 +78,7 @@ function getGamesByTitle(title) {
       console.error('Error:', error);
     });
 }
-
+// visualization of the search bar selection
 function addSearchToPage(game) {
   const gameElement = document.createElement('div');
   gameElement.className = 'game';
