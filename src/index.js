@@ -173,35 +173,6 @@ function removeGame(index){
   }
   
   }
+  favoriteGamesRefresh();
 
-  function fetchGameDetails(gameID){
-    const apiUrl = `https://www.cheapshark.com/api/1.0/games?id=${gameID}`
-    
-    fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      const gameInfo = data.info;
-      const retailPrice = data.deals[0].retailPrice
-
-      const gameDetails = {
-        title: gameInfo.title,
-        retailPrice: retailPrice
-      }
-    })
-  .catch(error => {
-    console.error('error on the original price fetch request', error);
-  })
-  }
-function fetchSelectedGamesDetails(){
-    selectedGames.forEach(game => {
-      fetchGameDetails(game.gameID)
-    })
-  }
-function fetchFavoriteGamesDetails() {
-  favoriteGames.forEach(game => {
-    fetchGameDetails(game.gameID)
-  })
-}
-
-favoriteGamesRefresh()
-
+  
