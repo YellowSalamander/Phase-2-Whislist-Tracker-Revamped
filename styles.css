@@ -19,3 +19,51 @@ body {
   .favGames h3 {
     margin: 0;
   }
+  .container {
+    display: flex;
+  }
+  
+  .container > div {
+    flex: 1;
+    background-color:grey;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 20px;
+    margin-right: 20px;
+  }
+  
+  .container > div:last-child {
+    margin-right: 0;
+  }
+  
+  .container > div img {
+    width: 500px;
+    height: 180px;
+  }
+  
+  .container > div .details {
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .container > div h4 {
+    margin: 0;
+  }
+  
+  .container > div p {
+    margin: 5px 0 0;
+  }
+  .container > div .details .dealButton {
+    background-color: lightgreen;
+    padding: 10px 20px; /* Increase padding for a larger button */
+    font-size: 16px; /* Increase font size for better visibility */
+    border: none; /* Remove default button border */
+    color: darkblue; /* Set text color to white for better contrast */
+    border-radius: 5px; /* Add border radius for a rounded appearance */
+    cursor: pointer; /* Show cursor pointer on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
+  }
+  .container > div .details .DealButton:hover {
+    background-color: darkgreen; /* Change background color on hover */
+  }

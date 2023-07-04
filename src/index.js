@@ -146,6 +146,7 @@ function renderSelectedGames(selectedGames) {
 function addGetDealButton(gameElement, gameTitle){
   const buttonElement = document.createElement('button');
   buttonElement.textContent = 'Get Deal';
+  buttonElement.classList.add('dealButton');
   buttonElement.addEventListener('click' , () => {
     getDeal(gameTitle);
   })
