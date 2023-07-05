@@ -172,28 +172,47 @@ body {
 
 
   
-    #game-results{
+    #game-results {
       display: none;
-    align-items: center;
-    margin-top: 20px;
-    background-color: rgb(78, 99, 131);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    padding: 20px;
-    border-radius: 5px;
-
+      align-items: center;
+      margin-top: 20px;
+      background-color: rgb(78, 99, 131);
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      padding: 20px;
+      border-radius: 5px;
     }
+
+    
     #game-results .details {
       flex-grow: 1;
       margin-right: 20px;
       font-size: 25px;
       background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
-      
-
+      height: 250px;
+      width: 160px;
     }
+
 #game-results p{
   font-size: 12px;
+}
+
+#game-results H4{
+  font-size: 20px;
 }
 #game-results .details .image img {
   width: 120px;
   max-height: 45px;
+}
+#game-results .details button {
+  background-color: rgb(236, 238, 144);
+  padding: 15px 25px;
+  font-size: 16px;
+  border: none;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-left: 5%;
+  vertical-align: middle;
+  
 }
