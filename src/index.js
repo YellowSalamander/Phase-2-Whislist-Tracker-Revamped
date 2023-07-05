@@ -62,6 +62,8 @@ function selectGame(index) {
     console.log(selectedGames)
     clearSearchResults()
     renderSelectedGames(selectedGames)
+    const resultsContainer = document.getElementById('game-results');
+    resultsContainer.style.display = 'none';
   }
 
 }
