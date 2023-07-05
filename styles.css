@@ -169,3 +169,31 @@ body {
     #search-button:hover {
       background-color: rgb(58, 75, 100); /* Darken the background color on hover */
     }
+
+
+  
+    #game-results{
+      display: none;
+    align-items: center;
+    margin-top: 20px;
+    background-color: rgb(78, 99, 131);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 20px;
+    border-radius: 5px;
+
+    }
+    #game-results .details {
+      flex-grow: 1;
+      margin-right: 20px;
+      font-size: 25px;
+      background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+      
+
+    }
+#game-results p{
+  font-size: 12px;
+}
+#game-results .details .image img {
+  width: 120px;
+  max-height: 45px;
+}

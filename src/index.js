@@ -14,7 +14,7 @@ function searchGames() {
     return;
   }
 
-  const apiUrl = `https://www.cheapshark.com/api/1.0/games?title=${encodeURIComponent(searchTerm)}&limit=5`;
+  const apiUrl = `https://www.cheapshark.com/api/1.0/games?title=${encodeURIComponent(searchTerm)}&limit=10`;
 
   fetch(apiUrl)
     .then(response => response.json())
@@ -40,14 +40,17 @@ function displaySearchResults() {
     const gameElement = document.createElement('div');
     gameElement.className = 'gameSearch';
     gameElement.innerHTML = `
-      <img src="${game.thumb}" alt="${game.external}">
-      <div class="details">
+    <div class="details">
+      <div class = 'image'>
+        <img src="${game.thumb}" alt="${game.external}">
+      </div>
         <h4>${game.external}</h4>
         <p>Cheapest Price: ${game.cheapest} $USD</p>
         <button onclick="selectGame(${index})">Select</button>
       </div>
     `;
     resultsContainer.appendChild(gameElement);
+    resultsContainer.style.display = 'flex';
   });
 }
 //handles selection
