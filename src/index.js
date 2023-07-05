@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let searchResults = [];
 let selectedGames = [];
-let favoriteGames = []
+let favoriteGames = [];
+
 function searchGames() {
   const searchTerm = document.getElementById('game-search-input').value;
 
@@ -176,4 +177,23 @@ function removeGame(index){
   }
   favoriteGamesRefresh();
 
-  
+  // handles the fixedUserDeals utilized as an example!
+function handleFixedUserDeals() {
+  const fixedUserGames = [`Assassins Creed 2`, `Project Zomboid`,`Elden Ring`]
+  fixedUserGames.forEach((game, index) => {
+    const apiUrl = `https://www.cheapshark.com/api/1.0/games?title=${encodeURIComponent(game)}&limit=1`
+        fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          const gameInfo = data[0]
+          if (gameInfo){
+            selectedGames.push(gameInfo)
+            renderSelectedGames(selectedGames)
+          }
+          })
+        }
+        )
+  }
+handleFixedUserDeals()
+
