@@ -86,11 +86,34 @@ body {
     margin-top: 50px;
   }
   .selectedGame {
+    display: flex;
+    align-items: center;
     margin-top: 20px;
-    flex: 1;
-    background-color:rgb(78, 99, 131);
+    background-color: rgb(78, 99, 131);
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 20px;
-    margin-right: 20px;
-    border-radius: 5px; /* Add border radius for a rounded appearance */
+    border-radius: 5px;
   }
+  .selectedGame .details {
+    flex-grow: 1;
+    margin-right: 20px;
+    font-size: 25px;
+  }
+
+  .selectedGame .dealButton{
+    background-color: lightgreen;
+    padding: 15px 25px; /* Increase padding for a larger button */
+    font-size: 16px; /* Increase font size for better visibility */
+    border: none; /* Remove default button border */
+    color: darkblue; /* Set text color to white for better contrast */
+    border-radius: 5px; /* Add border radius for a rounded appearance */
+    cursor: pointer; /* Show cursor pointer on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
+    margin-left: 5%;
+  }
+  .selectedGame > img {
+  max-width: 250px; /* Adjust the size as needed */
+  margin-right: 20px;
+      height: 120px;
+    }
+  
