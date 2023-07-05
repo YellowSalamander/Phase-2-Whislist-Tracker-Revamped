@@ -162,6 +162,7 @@ function getDeal(gameTitle){
 function addRemoveButton(gameElement, index){
   const removeButton = document.createElement('button');
   removeButton.textContent = "Remove Game From Wishlist"
+removeButton.classList.add('removeButton')
   removeButton.addEventListener('click', () => { 
     removeGame(index)
   })

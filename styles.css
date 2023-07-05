@@ -105,7 +105,7 @@ body {
     padding: 15px 25px; /* Increase padding for a larger button */
     font-size: 16px; /* Increase font size for better visibility */
     border: none; /* Remove default button border */
-    color: darkblue; /* Set text color to white for better contrast */
+    color: darkblue; /* Set text color to darkblue to show user link to click for better contrast */
     border-radius: 5px; /* Add border radius for a rounded appearance */
     cursor: pointer; /* Show cursor pointer on hover */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
@@ -116,4 +116,15 @@ body {
   margin-right: 20px;
       height: 120px;
     }
-  
+    .selectedGame .removeButton{
+      background-color: rgb(214, 25, 0);
+      padding: 15px 25px; /* Increase padding for a larger button */
+      font-size: 16px; /* Increase font size for better visibility */
+      border: none; /* Remove default button border */
+      color: rgb(0, 0, 0); /* Set text color to light red to signify delete and for better contrast */
+      border-radius: 5px; /* Add border radius for a rounded appearance */
+      cursor: pointer; /* Show cursor pointer on hover */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
+      margin-left: 5%;
+
+    }
