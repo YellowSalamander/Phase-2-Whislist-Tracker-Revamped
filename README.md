@@ -41,6 +41,8 @@ This application utilizes the CheapShark API to retrieve game data.
 Special thanks to stackoverflow and Developer.mozilla !
 also the IA that replt has which helped me find some more tenacious bugs on the code that aluded me for days
 And obviously to all the database of Flatiron in canvas and all the domain examples in the previous exercises
+All images and multimedia used on the site are sourced from the API, all rights belong to the publishing company or developer.
+
 
 ## License
 This application is licensed under the MIT License.
