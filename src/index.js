@@ -1,5 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('search-button').addEventListener('click', searchGames);
+  document.getElementById('game-search-input').addEventListener('keydown', (e) => {
+    // console.log(e.key);
+    if (e.key === 'Enter') {
+      searchGames('input');
+    }
+  });
 });
 
 let searchResults = [];
