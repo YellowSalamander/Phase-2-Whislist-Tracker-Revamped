@@ -6,6 +6,7 @@ let searchResults = [];
 let selectedGames = [];
 let favoriteGames = [];
 
+//handles the search functionality with a fetch request to the cheapshark API and sends results to the displaySearchResults function
 function searchGames() {
   const searchTerm = document.getElementById('game-search-input').value;
 
@@ -26,7 +27,9 @@ function searchGames() {
       console.error('Error:', error);
     });
 }
-// handles search bar initially
+
+
+// handles search display from the search bar results allowing user to select a game and keep it on the DOM. 
 function displaySearchResults() {
   const resultsContainer = document.getElementById('game-results');
   resultsContainer.innerHTML = '';
@@ -53,13 +56,13 @@ function displaySearchResults() {
     resultsContainer.style.display = 'flex';
   });
 }
-//handles selection
+
+//handles selection of the games of the searched games and pushes data to the selectedGames array, then sends the data to InitialRenderofGamestoPage function for _____ then calls clearSearchResults
+// then sends data to the renderSelectedGames to append it to the DOM, lastly hides the display CSS for the search bar which would now be empty.
 function selectGame(index) {
   if (index >= 0 && index < searchResults.length) {
     const selectedGame = searchResults[index];
-    selectedGames.push(selectedGame); // Add selected game to the selectedGames array
-    initialRenderofGametoPage(selectedGame);
-    console.log(selectedGames)
+    selectedGames.push(selectedGame); 
     clearSearchResults()
     renderSelectedGames(selectedGames)
     const resultsContainer = document.getElementById('game-results');
@@ -72,34 +75,8 @@ function clearSearchResults() {
   const resultsContainer = document.getElementById('game-results');
   resultsContainer.innerHTML = '';
 }
-//fetch request by title
-function getGamesByTitle(title) {
-  const apiUrl = `https://www.cheapshark.com/api/1.0/games?title=${encodeURIComponent(title)}&limit=5`;
 
-  fetch(apiUrl)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
-}
-// visualization of the search bar selection, favorite games, essential for main page load ** change function name**
-function initialRenderofGametoPage(game) {
-  const gameElement = document.createElement('div');
-  gameElement.className = 'game';
-  gameElement.innerHTML = `
-    <img src="${game.thumb}" alt="${game.external}">
-    <div class="details">
-      <h4>${game.external}</h4>
-      <p> Cheapest Price: ${game.cheapest}$ USD</p>
-    </div>
-  `;
-  document.getElementById('game-results').appendChild(gameElement);
-}
-
-// Refreshes favorite game data and renders it on the top of the page
+// Refreshes favorite game data and renders it on the top of the page, this games are already pre-selected and user cannot modify them.
 function favoriteGamesRefresh() {
   const favGames = [`Divinity: Original Sin 2 - Eternal Edition`, `Stellaris`, `Project Wingman`]
   favGames.forEach((game, index) => {
@@ -128,6 +105,7 @@ function favoriteGamesRefresh() {
     })
   })
 }
+
 // This function serves to render the selected games array and appends it to the html page
 function renderSelectedGames(selectedGames) {
   const selectedGamesContainer = document.getElementById('selected-games');
@@ -148,7 +126,7 @@ function renderSelectedGames(selectedGames) {
     selectedGamesContainer.appendChild(gameElement);
   });
 }
-// adds a button to all rendered games (except search bar results)
+// adds a button to all rendered games (except search bar results) by creating the html and adding the event listener
 function addGetDealButton(gameElement, gameTitle){
   const buttonElement = document.createElement('button');
   buttonElement.textContent = 'Get Deal';
@@ -163,7 +141,7 @@ function getDeal(gameTitle){
   console.log(`Get deal for game: ${gameTitle}`)
   alert(`Pretend page redirected user to storefront for game: ${gameTitle}`)
 }
-// adds the remove button
+// adds the remove button and utilizes an event listener
 function addRemoveButton(gameElement, index){
   const removeButton = document.createElement('button');
   removeButton.textContent = "Remove Game From Wishlist"
@@ -183,7 +161,7 @@ function removeGame(index){
   }
   favoriteGamesRefresh();
 
-  // handles the fixedUserDeals utilized as an example!
+  // handles the fixedUserDeals utilized as an example! Basically the ones on the bottom of the page, similar function as favGames, user could easily removes this deals from DOM, does an independent fetch request
 function handleFixedUserDeals() {
   const fixedUserGames = [`Assassins Creed 2`, `Project Zomboid`,`Elden Ring`]
   fixedUserGames.forEach((game, index) => {
