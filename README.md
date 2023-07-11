@@ -45,4 +45,4 @@ All images and multimedia used on the site are sourced from the API, all rights 
 
 
 ## License
-This application is licensed under the MIT License.
+This application is licensed under the GNU GENERAL PUBLIC LICENSE
