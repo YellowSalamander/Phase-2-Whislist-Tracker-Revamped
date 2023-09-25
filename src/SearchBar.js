@@ -9,7 +9,15 @@ function SearchBar({ onSearch }) {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
+    // Call the onSearch function with the current searchValue
     onSearch(searchValue);
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSearchSubmit(e); // Call the search submit function when Enter is pressed
+    }
   };
 
   return (
@@ -19,6 +27,7 @@ function SearchBar({ onSearch }) {
         placeholder="Search games"
         value={searchValue}
         onChange={handleSearchChange}
+        onKeyDown={handleKeyPress}
       />
       <button type="submit">Search</button>
     </form>
