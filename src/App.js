@@ -3,6 +3,8 @@ import React, {useState, useEffect} from "react";
 import Header from './Header'; // Import the Header component
 import SearchBar from "./SearchBar.js";
 import FavGames from "./FavGames";
+import SearchResults from './SearchResults'; 
+
 function App({Home, Login, About}) {
   const [searchResults, setSearchResults] = useState([])
 
@@ -15,15 +17,18 @@ const onSearch = (searchValue) => {
         console.log("This is the data:", data)
       });
   };
+  const handleSelect = (selectedGame) => {
+    // Handle the selection of a game here
+    console.log('Selected Game:', selectedGame);
 
 
-
-
+  }
   return (
     <div>
       <Header /> {/* Use the Header component */}
       <FavGames />
       <SearchBar onSearch={onSearch} /> 
+      <SearchResults searchResults={searchResults} onSelect={handleSelect} />
     </div>
 
   );

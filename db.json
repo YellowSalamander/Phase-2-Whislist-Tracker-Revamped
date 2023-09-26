@@ -1,12 +1,14 @@
 {
-    "FavGames": [
-      {
-        "id": 1,
-        "title": "Hello World"
-      },
-      {
-        "id": 2,
-        "title": "React is Awesome"
-      }
-    ]
-  }
+  "FavGames": [
+    {
+      "id": 1,
+      "title": "Hello World"
+    },
+    {
+      "id": 2,
+      "title": "React is Awesome"
+    }
+  ],
+  "User": [
+  ]
+}
