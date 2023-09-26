@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from "react";
-// import './Styles.css'; // Import your CSS file here
 import Header from './Header'; // Import the Header component
 import SearchBar from "./SearchBar.js";
 import FavGames from "./FavGames";
 import SearchResults from './SearchResults'; 
+import HandleUserGames from './handleUserGames'
+
 
 function App({Home, Login, About}) {
   const [searchResults, setSearchResults] = useState([])
+  const [selectedGames, setSelectedGames] = useState([])
 
 const onSearch = (searchValue) => {
   fetch(`https://www.cheapshark.com/api/1.0/games?title=${searchValue}&limit=10`)
@@ -29,6 +31,7 @@ const onSearch = (searchValue) => {
       <FavGames />
       <SearchBar onSearch={onSearch} /> 
       <SearchResults searchResults={searchResults} onSelect={handleSelect} />
+      <HandleUserGames selectedGames={selectedGames} />
     </div>
 
   );
