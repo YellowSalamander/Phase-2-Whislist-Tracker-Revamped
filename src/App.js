@@ -10,6 +10,10 @@ function App({Home, Login, About}) {
   const [searchResults, setSearchResults] = useState([])
   const [selectedGames, setSelectedGames] = useState([])
 
+// const handleRemove = (gameId) => {
+//   setSelectedGames((prevSelectedGames) =>
+//   prevSelectedGames.filter((game)=> game.gameID !== gameId))
+// }
 const onSearch = (searchValue) => {
   fetch(`https://www.cheapshark.com/api/1.0/games?title=${searchValue}&limit=10`)
       .then((response) => response.json())

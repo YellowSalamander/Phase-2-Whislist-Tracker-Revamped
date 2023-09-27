@@ -5,7 +5,9 @@ function SearchResults({ searchResults, onSelect }) {
 
   const handleSelect = (selectedGame) => {
     // Create a new object with only the 'external' property
-    const requestData = { gameID: selectedGame.gameID };
+    const requestData = { 
+      gameID: selectedGame.gameID,
+    gameTitle: selectedGame.external };
 
     setSelectedGame(selectedGame);
 

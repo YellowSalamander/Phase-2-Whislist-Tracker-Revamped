@@ -1,8 +1,26 @@
 import React, { useEffect, useState } from 'react';
 
-function HandleUserGames({selectedGames}) {
+
+function HandleUserGames({selectedGames, onRemove}) {
   const [cheapSharkGameData, setCheapSharkGameData] = useState([]);
 
+const handleRemove =  (e) => {
+  const gameIndexToRemove = e.target.dataset.gameIndex 
+  console.log(`this is the index:`, gameIndexToRemove)
+
+    fetch(`http://localhost:4000/user/${gameIndexToRemove}`, {
+      method: 'DELETE',
+      headers: {
+        'content-Type': 'Application/json',
+      },
+    })
+    .then((response)=>{
+      if(!response.ok){
+        throw new Error(`Failed To Remove game with title ${gameIndexToRemove}`)
+      }
+      return response.json();
+    })
+  }
   useEffect(() => {
     // Step 1: Fetch data from db.json
     fetch('http://localhost:4000/user')
@@ -32,7 +50,7 @@ function HandleUserGames({selectedGames}) {
 
       })
     }, [selectedGames] )
-    // console.log('this is the setCheap2:',cheapSharkGameData)
+    console.log('this is the setCheap2:',cheapSharkGameData)
   return (
     <div className='RenderedGames'>
       <h1>Your Wishlist!</h1>
@@ -43,7 +61,8 @@ function HandleUserGames({selectedGames}) {
           <p>Cheapest Price Ever: {game.cheapestPriceEver.price}</p>
           <p>Current Cheapest Price: {game.deals[0].price}</p>
           <img src={game.info.thumb} className='RenderGameThumb'></img>
-          <button>Get deal!</button>
+          <button className='GetDeal'>Get deal!</button>
+          <button className='Remove' data-game-index={index+1} onClick={(e)=>handleRemove(e)}> Remove </button>
           </li>
             
         ))}
