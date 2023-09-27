@@ -22,6 +22,7 @@ const onSearch = (searchValue) => {
   const handleSelect = (selectedGame) => {
     // Handle the selection of a game here
     console.log('Selected Game:', selectedGame);
+    setSelectedGames([selectedGames,selectedGame])
 
 
   }
@@ -36,17 +37,5 @@ const onSearch = (searchValue) => {
 
   );
 }
-
-
-// e.preventDefault();
-// useEffect(()=> {
-//   fetch(`https://www.cheapshark.com/api/1.0/games?title=${searchValue}&limit=10`)
-//     .then((r) => {
-//     return r.json()})
-//     .then ((data) => {
-//       console.log(data)
-//     })
-// })
-
 
 export default App;

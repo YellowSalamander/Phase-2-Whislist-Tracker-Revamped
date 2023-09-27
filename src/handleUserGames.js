@@ -1,46 +1,42 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-function HandleUserGames({ selectedGames }) {
-  // State to store the cheapest prices for selected games
-  const [cheapestPrices, setCheapestPrices] = useState({});
+function HandleUserGames(selectedGames) {
+  const [userGameData, setUserGameData] = useState([]);
+  const [cheapSharkGameData, setCheapSharkGameData] = useState([]);
+
   useEffect(() => {
-    // Fetch cheapest prices for selected games
-    const fetchCheapestPrices = async () => {
-      const gameNames = selectedGames.map((game) => game.title);
-
-      // Create an object with game names as keys and prices as values
-      const prices = {};
-
-      await Promise.all(
-        gameNames.map(async (name) => {
-          const response = await fetch(
-            `https://www.cheapshark.com/api/1.0/games?title=${name}`
+    // Step 1: Fetch data from db.json
+    fetch('http://localhost:4000/user')
+      .then((response) => response.json())
+      .then((data) => {
+        // Step 2: Extract the fetched data
+        const userGames = data.User;
+        console.log(userGames);
+  
+        // Step 3: Make a GET request to the CheapShark API
+        const fetchPromises = userGames.map((userGame) => {
+          const gameID = userGame.gameID;
+          return fetch(`https://www.cheapshark.com/api/1.0/games?id=${gameID}`).then((response) =>
+            response.json()
           );
-          const data = await response.json();
-          if (data && data.length > 0) {
-            prices[name] = data[0].cheapestPrice;
-          }
-        })
-      );
-
-      setCheapestPrices(prices);
-    };
-
-    fetchCheapestPrices();
-  }, [selectedGames]);
+        });
+  
+        Promise.all(fetchPromises)
+          .then((cheapSharkDataArray) => {
+            console.log(cheapSharkDataArray);
+          })
+          .catch((error) => {
+            console.error('Error from CheapShark API:', error);
+          });
+      })
+      .catch((error) => {
+        console.error('Error fetching data from db.json:', error);
+      });
+  }, []);
 
   return (
-    <div className="selected-games">
-      <h2>Selected Games</h2>
-      <ul>
-        {selectedGames.map((game) => (
-          <li key={game.id}>
-            <strong>Title:</strong> {game.title}
-            <br />
-            <strong>Cheapest Price:</strong> ${cheapestPrices[game.title] || 'N/A'}
-          </li>
-        ))}
-      </ul>
+    <div>
+
     </div>
   );
 }
