@@ -22,7 +22,7 @@ const onSearch = (searchValue) => {
   const handleSelect = (selectedGame) => {
     // Handle the selection of a game here
     console.log('Selected Game:', selectedGame);
-    setSelectedGames([selectedGames,selectedGame])
+    setSelectedGames((prevSelectedGames) => [...prevSelectedGames, selectedGame]);
 
 
   }

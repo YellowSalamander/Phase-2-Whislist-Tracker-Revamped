@@ -30,7 +30,7 @@ function SearchResults({ searchResults, onSelect }) {
           <img src={game.thumb} alt={game.external}></img>
           <p>Game Title: {game.external}</p>
           <p>Sale Price: ${game.cheapest}</p>
-          <button onClick={() =>handleSelect(game)}>Select</button>
+          <button onClick={() =>{handleSelect(game); onSelect(game)}} >Select</button>
         </div>
       ))}
     </div>

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function HandleUserGames(selectedGames) {
-  const [userGameData, setUserGameData] = useState([]);
+function HandleUserGames({selectedGames}) {
   const [cheapSharkGameData, setCheapSharkGameData] = useState([]);
 
   useEffect(() => {
@@ -27,13 +26,13 @@ function HandleUserGames(selectedGames) {
           });
           const gameDataList = await Promise.all(promises);
           setCheapSharkGameData(gameDataList)
-          console.log('this is dataList:', gameDataList)
+          // console.log('this is dataList:', gameDataList)
         }
         fetchData();
-        console.log('this is the setCheap:',cheapSharkGameData)
+
       })
-    }, [] )
-    console.log('this is the setCheap2:',cheapSharkGameData)
+    }, [selectedGames] )
+    // console.log('this is the setCheap2:',cheapSharkGameData)
   return (
     <div className='RenderedGames'>
       <h1>Your Wishlist!</h1>
