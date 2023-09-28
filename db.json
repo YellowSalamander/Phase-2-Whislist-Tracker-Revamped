@@ -9,5 +9,31 @@
       "title": "React is Awesome"
     }
   ],
-  "User": []
+  "User": [
+    {
+      "gameID": "265829",
+      "gameTitle": "Litas Dream",
+      "id": 1
+    },
+    {
+      "gameID": "163304",
+      "gameTitle": "InfinitasDM",
+      "id": 2
+    },
+    {
+      "gameID": "247766",
+      "gameTitle": "As Dusk Falls",
+      "id": 3
+    },
+    {
+      "gameID": "248257",
+      "gameTitle": "DouDas Danger",
+      "id": 4
+    },
+    {
+      "gameID": "223364",
+      "gameTitle": "Resident Evil",
+      "id": 5
+    }
+  ]
 }
