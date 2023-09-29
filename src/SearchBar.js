@@ -9,7 +9,6 @@ function SearchBar({ onSearch }) {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    // Call the onSearch function with the current searchValue
     onSearch(searchValue);
   };
 
