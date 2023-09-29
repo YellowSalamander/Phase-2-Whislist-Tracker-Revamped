@@ -1,4 +1,5 @@
 import React from 'react';
+import "./FavGames.css"
 
 function FavGames() {
   // Sample data for the three game boxes

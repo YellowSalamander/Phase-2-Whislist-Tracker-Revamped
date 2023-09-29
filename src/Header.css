@@ -1,0 +1,21 @@
+.banner{
+    background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);;
+    padding: 10px; /* Add padding to create a box effect */
+    text-align: center; /* Center the content */
+    border-radius: 5px; /* Add border radius for a rounded appearance */
+    padding: 20px;
+    text-align: center;
+  }
+  .navbar {
+    display: flex; /* Use flexbox to display items horizontally */
+    justify-content: center; /* Center items horizontally within the navbar */
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+  }
+
+  .navbar-item {
+    margin: 0 10px; /* Add spacing between items (adjust as needed) */
+    text-align: center;
+    font-size: 26px;
+  }
+    
