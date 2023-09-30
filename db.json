@@ -34,6 +34,26 @@
       "gameID": "223364",
       "gameTitle": "Resident Evil",
       "id": 5
+    },
+    {
+      "gameID": "211333",
+      "gameTitle": "The Test",
+      "id": 6
+    },
+    {
+      "gameID": "273070",
+      "gameTitle": "Whitestone",
+      "id": 7
+    },
+    {
+      "gameID": "196101",
+      "gameTitle": "Darwin's Test",
+      "id": 8
+    },
+    {
+      "gameID": "183156",
+      "gameTitle": "Combat Tested",
+      "id": 9
     }
   ]
 }

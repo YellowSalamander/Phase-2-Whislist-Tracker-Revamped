@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import "./handleUserGames.css"
 
 
 function HandleUserGames({selectedGames, onRemove}) {
@@ -37,13 +38,14 @@ function HandleUserGames({selectedGames, onRemove}) {
   return (
     <div className='RenderedGames'>
       <h1>Your Wishlist!</h1>
-      <ul>
+      <ul className='RenderedGamesContainer'>
         {cheapSharkGameData.map((game, index)=> (
           
-          <li key={index} className='GameTitleRender'>{game.info.title}
-          <p>Cheapest Price Ever: {game.cheapestPriceEver.price}</p>
-          <p>Current Cheapest Price: {game.deals[0].price}</p>
+          <li key={index} className='GameTitleRender'>
+            <h2 id="title">{game.info.title}</h2>
           <img src={game.info.thumb} className='RenderGameThumb'></img>
+          <p  id= "pa">Cheapest Price Ever: {game.cheapestPriceEver.price} </p>
+          <p  id= "pa">Current Cheapest Price: {game.deals[0].price}</p>
           <button className='GetDeal'>Get deal!</button>
           <button className='Remove' data-game-index={index+1} onClick={(e)=>onRemove(index)}> Remove </button>
           </li>

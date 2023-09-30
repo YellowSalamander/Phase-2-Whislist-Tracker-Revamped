@@ -1,4 +1,5 @@
 .search-results {
+  display: inline-block;
     background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
     border-radius: 5px; /* Add border radius for a rounded appearance */
     transition: background-color 0.3s ease; /* Add a smooth transition effect */
