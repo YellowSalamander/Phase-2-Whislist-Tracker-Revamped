@@ -1,0 +1,55 @@
+.search-results {
+    background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+    border-radius: 5px; /* Add border radius for a rounded appearance */
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+.search-result-item {
+    display:inline-block;
+    flex-direction: row;
+    align-items: flex-start;
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: 10px;
+    background-color: rgb(78, 99, 131);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 5px; /* Add border radius for a rounded appearance */
+
+  }
+  
+  .result-header {
+    order: 1;
+  }
+  
+  .result-content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 500px;
+    order: 2;
+    height: 50px
+  }
+  
+  img {
+    width: 250px; /* Adjust the maximum width of the image as needed */
+    height: 85px;
+    margin-right: 10px; /* Add some spacing between the image and <p> elements */
+    margin-bottom: 10px;
+  }
+  
+  #select-buttons {
+    margin-left: 400px; /* Move the button to the far right side */
+    order: 3;
+    background-color: rgb(4, 100, 243);
+    color: white;
+    padding: 10px 20px; /* Increase padding for a larger button */
+    font-size: 16px; /* Increase font size for better visibility */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Add border radius for a rounded appearance */
+    cursor: pointer; /* Show cursor pointer on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
+    transition: background-color 0.3s ease; /* Add a smooth transition effect */
+  }

@@ -69,7 +69,7 @@ function App({Home, Login, About}) {
     };
       
 const onSearch = (searchValue) => {
-  fetch(`https://www.cheapshark.com/api/1.0/games?title=${searchValue}&limit=10`)
+  fetch(`https://www.cheapshark.com/api/1.0/games?title=${searchValue}&limit=12`)
       .then((response) => response.json())
       .then((data) => {
         setSearchResults(data); // Update the searchResults state with the fetched data

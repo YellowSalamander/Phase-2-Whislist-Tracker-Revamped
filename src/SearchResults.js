@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./SearchResults.css"
 
 function SearchResults({ searchResults, onSelect }) {
   const [selectedGame, setSelectedGame] = useState(null);
@@ -28,11 +29,17 @@ function SearchResults({ searchResults, onSelect }) {
     <div className="search-results">
       {searchResults.map((game) => (
         <div key={game.gameID} className="search-result-item">
-          <h2>{game.external}</h2>
-          <img src={game.thumb} alt={game.external}></img>
-          <p>Game Title: {game.external}</p>
-          <p>Sale Price: ${game.cheapest}</p>
-          <button onClick={() =>{handleSelect(game); onSelect(game)}} >Select</button>
+          <div className="result-header">
+            <h2>{game.external}</h2>
+          </div>
+          <div className="result-content">
+            <img src={game.thumb} alt={game.external} />
+            <div>
+              <p>Game Title: {game.external}</p>
+              <p>Sale Price: ${game.cheapest}</p>
+            </div>
+          </div>
+          <button onClick={() => { handleSelect(game); onSelect(game) }} id="select-buttons">Select</button>
         </div>
       ))}
     </div>
