@@ -37,7 +37,7 @@
       "id": 6
     }
   ],
-  "User": [
+  "user": [
     {
       "gameID": "265829",
       "gameTitle": "Litas Dream",
@@ -82,6 +82,11 @@
       "gameID": "183156",
       "gameTitle": "Combat Tested",
       "id": 9
+    },
+    {
+      "gameID": "141408",
+      "gameTitle": "Darkest Dungeon",
+      "id": 10
     }
   ]
 }

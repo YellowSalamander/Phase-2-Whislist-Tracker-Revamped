@@ -36,30 +36,20 @@ function App({Home, Login, About}) {
         const userIDs = dbData.map((user) => user.id);
         const patchedData = dbData.forEach((user, index) => {
           user.id = index + 1 ;
-        });
-    
-        console.log('This is user IDs', userIDs);
-        console.log('this is dbData', dbData);
-        console.log('This is patchedData:', patchedData)
-
-        // this is additional fetch below is to update the id's on the db.json server so that after removal the array id always matches the one fetched by the API
-        const patchRequests = userIDs.map((userID) => {
-          return fetch(`http://localhost:4000/User/${userID}`, {
-            method: 'PATCH',
-            headers: {
-              'Content-type': 'application/json',
-            },
-            body: JSON.stringify({ id: dbData }),
-          }).then((response) => {
-            if (!response.ok) {
-              throw new Error('Failed to Patch ids');
+            });
+            const putResponse = await fetch('http://localhost:4000/User', {
+              method: 'PUT',
+              headers: {
+                'Content-type': 'application/json',
+              },
+              body: JSON.stringify(dbData),
+            });
+        
+            if (!putResponse.ok) {
+              throw new Error('Failed to update data on the server');
             }
-          });
-        });
-    
-
-        await Promise.all(patchRequests);
-    
+        
+            console.log('Data updated:', dbData);
         // Filter the selectedGames array based on the index
         const updatedSelectedGames = selectedGames.filter((game, idx) => idx !== gameIndexToRemove);
         setSelectedGames(updatedSelectedGames);
@@ -112,56 +102,37 @@ export default App;
 
 
 
-// const handleRemove = (index) => {
-//   const gameIndexToRemove = index + 1
-//     console.log(`this is the index:`, gameIndexToRemove)
+// const userIDs = dbData.map((user) => user.id);
+// const patchedData = dbData.forEach((user, index) => {
+//   user.id = index + 1 ;
+// });
 
-//       fetch(`http://localhost:4000/user/${gameIndexToRemove}`, {
-//         method: 'DELETE',
-//         headers: {
-//           'content-Type': 'Application/json',
-//         },
-//       })
-//       .then((response)=>{
-//         if(!response.ok){
-//           throw new Error(`Failed To Remove game with index ${gameIndexToRemove}`)
-//         } 
-//         return fetch('http://localhost:4000/User')
-//       })
-//       // this is additional fetch below is to update the id's on the db.json server so that after removal the array id always matches the one fetched by the API
+// console.log('This is user IDs', userIDs);
+// console.log('this is dbData', dbData);
+// console.log('This is patchedData:', patchedData)
 
-//       .then((response) => response.json())
-//       .then((dbData)=> {
-//         const patchedData = dbData.forEach((user, index) => {
-//           user.id = index + 1 ;
-//         });
+// // this is additional fetch below is to update the id's on the db.json server so that after removal the array id always matches the one fetched by the API
+// const patchRequests = userIDs.map((userID) => {
+//   return fetch(`http://localhost:4000/User/${userID}`, {
+//     method: 'PATCH',
+//     headers: {
+//       'Content-type': 'application/json',
+//     },
+//     body: JSON.stringify({ id: dbData }),
+//   }).then((response) => {
+//     if (!response.ok) {
+//       throw new Error('Failed to Patch ids');
+//     }
+//   });
+// });
 
-//         const userIDs = dbData.map((user) => user.id)
 
-//         console.log('This is user IDs', userIDs)
-//         console.log('this is dbData',dbData)
-//         // console.log('this is the patchedData:', patchedData)
-//           const patchRequest = userIDs.map((userIDs) => {
-//             fetch(`http://localhost:4000/User/${userIDs}`, {
-//             method: 'PATCH',
-//             headers: {
-//               'Content-type': 'application/json',
-//             },
-//             body: JSON.stringify({id: userIDs})
-//           })
-//           .then((response)=>{
-//             if(!response.ok){
-//               throw new Error('Failed to Patch ids');
-//             }
-//           })
-//         })
-//         })
-//       .then(() => {
-//         // Filter the selectedGames array based on the index
-//         const updatedSelectedGames = selectedGames.filter((game, idx) => idx !== gameIndexToRemove);
-//         setSelectedGames(updatedSelectedGames);
-//       })
-//       .catch((error) => {
-//         console.error(error);
-//       });
-//     };
+// await Promise.all(patchRequests);
+
+// // Filter the selectedGames array based on the index
+// const updatedSelectedGames = selectedGames.filter((game, idx) => idx !== gameIndexToRemove);
+// setSelectedGames(updatedSelectedGames);
+// } catch (error) {
+// console.error(error);
+// }
+// };

@@ -9,7 +9,7 @@ function FavGames() {
     fetch('http://localhost:4000/FavGames')
     .then (response => response.json())
     .then(data => {
-      console.log (data)
+      // console.log (data)
       const shuffledGames = shuffleArray(data);
 
       const selectedGames = shuffledGames.slice(0,3);
@@ -25,7 +25,7 @@ function FavGames() {
       const j = Math.floor(Math.random() * (i+1));
       [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]]
     }
-    console.log(shuffledArray)
+    // console.log(shuffledArray)
     return shuffledArray
   }
     return (
