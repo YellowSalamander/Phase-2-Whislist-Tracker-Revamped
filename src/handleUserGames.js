@@ -34,7 +34,7 @@ function HandleUserGames({selectedGames, onRemove}) {
 
       })
     }, [selectedGames] )
-    console.log('this is the setCheap2:',cheapSharkGameData)
+    // console.log('this is the setCheap2:',cheapSharkGameData)
   return (
     <div className='RenderedGames'>
       <h1>Your Wishlist!</h1>
@@ -44,8 +44,8 @@ function HandleUserGames({selectedGames, onRemove}) {
           <li key={index} className='GameTitleRender'>
             <h2 id="title">{game.info.title}</h2>
           <img src={game.info.thumb} className='RenderGameThumb'></img>
-          <p  id= "pa">Cheapest Price Ever: {game.cheapestPriceEver.price} </p>
-          <p  id= "pa">Current Cheapest Price: {game.deals[0].price}</p>
+          <p  id= "pa1">Cheapest Price Ever: {game.cheapestPriceEver.price} </p>
+          <p  id= "pa2">Current Cheapest Price: {game.deals[0].price}</p>
           <button className='GetDeal'>Get deal!</button>
           <button className='Remove' data-game-index={index+1} onClick={(e)=>onRemove(index)}> Remove </button>
           </li>

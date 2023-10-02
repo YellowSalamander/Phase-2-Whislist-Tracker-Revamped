@@ -1,20 +1,70 @@
 .fav-games {
-display: flex;
-margin-bottom: 0;
-background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
-border-radius: 5px; /* Add border radius for a rounded appearance */
-padding: 20px;
-text-align: center;
-margin-top: 20px;
-
-}
-.game-box {
-    display:flex;
-    margin-top: 20px;
-    flex: 1;
-    background-color:rgb(78, 99, 131);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+    background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+    border-radius: 5px;
     padding: 20px;
-    margin-right: 20px;
-    border-radius: 5px; 
+    text-align: center;
+    margin-top: 20px;
+    width: auto;
+  }
+  .game-boxes-container {
+    display: flex; /* Create a flex container for game boxes */
+    flex-direction: row; /* Make game boxes render horizontally */
+    flex-wrap: wrap; /* Allow game boxes to wrap to the next row if needed */
+    justify-content: space-between; /* Add space between game boxes */
+    width: 100%; /* Ensure the container takes full width */
+  }
+
+  .header-container {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px; /* Add margin to separate H1 from game boxes */
+  }
+  
+.game-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(78, 99, 131);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px;
+  margin-right: 20px;
+  border-radius: 5px;
+  width: 325px;
+  text-align: center;
 }
+  
+  .game-title {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  
+  .game-image {
+    margin-top: 10px;
+    max-width: 100%;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  #button {
+    background-color: lightgreen;
+    padding: 15px 25px;
+    font-size: 16px;
+    border: none;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  #Header {
+    padding: 5px;
+    font-size: 28px;
+  }
+  

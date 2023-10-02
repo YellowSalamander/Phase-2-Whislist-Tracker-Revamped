@@ -11,7 +11,7 @@
     font-size: 16px; /* Increase font size for better readability */
     border: 2px solid rgb(78, 99, 131); /* Add a border around the input */
     border-radius: 5px; /* Add border radius for a rounded appearance */
-    width: 1250px;
+    width: 1000px;
 }
 
 #search-button {
