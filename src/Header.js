@@ -1,5 +1,8 @@
 import React from 'react';
 import './Header.css';
+import { NavLink } from 'react-router-dom';
+
+
 
 function Header() {
   return (
@@ -7,9 +10,9 @@ function Header() {
       <header>
         <h1>Wishlist Deal Tracker</h1>
         <nav className="navbar">
-            <ul className="navbar-item">Search games</ul>
-            <ul className="navbar-item">Log in</ul>
-            <ul className="navbar-item">About</ul>
+            <NavLink to="/wishlist" className="navbar-item">Search games</NavLink>
+            <NavLink to="/" className="navbar-item">Log in</NavLink>
+            <NavLink to ="/about" className="navbar-item">About</NavLink>
         </nav>
       </header>
     </div>

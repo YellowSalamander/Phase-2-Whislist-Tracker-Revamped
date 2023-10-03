@@ -1,12 +1,14 @@
 import React, {useState, useEffect} from "react";
-import Header from './Header'; 
+import Header from './Header'
+import About from './About'; 
 import SearchBar from "./SearchBar.js";
 import FavGames from "./FavGames";
 import SearchResults from './SearchResults'; 
 import HandleUserGames from './handleUserGames'
+import { Route, Switch } from 'react-router-dom';
 
 
-function App({Home, Login, About}) {
+function App() {
   const [searchResults, setSearchResults] = useState([])
   const [selectedGames, setSelectedGames] = useState([])
 
@@ -75,24 +77,23 @@ const onSearch = (searchValue) => {
   }
   return (
     <div>
-      <Header /> { }
+        <Header/>
+    <Switch>
+    <Route path ="/wishlist">
       <FavGames />
       <SearchBar onSearch={onSearch} /> 
       <SearchResults searchResults={searchResults} onSelect={handleSelect} />
       <HandleUserGames selectedGames={selectedGames} onRemove={handleRemove} />
+      
+    </Route>
+    <Route path="/">
+      <About />
+    </Route>
+    </Switch>
     </div>
 
   );
 }
-
-
-
-
-
-
-
-
-
 export default App;
 
 

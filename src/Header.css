@@ -11,11 +11,21 @@
     justify-content: center; /* Center items horizontally within the navbar */
     list-style: none; /* Remove default list styles */
     padding: 0; /* Remove default padding */
+    width: auto;
   }
 
   .navbar-item {
-    margin: 0 10px; /* Add spacing between items (adjust as needed) */
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
+    color: #fff; /* Set text color to contrast with the background */
+    border: 1px solid black; /* Add a border */
+    border-radius: 4px; /* Add some border radius for a button-like appearance */
+    text-decoration: none;
     text-align: center;
-    font-size: 26px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth hover effect */
   }
+  
     
