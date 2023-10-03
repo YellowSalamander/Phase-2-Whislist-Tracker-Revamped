@@ -34,7 +34,7 @@ function HandleUserGames({selectedGames, onRemove}) {
 
       })
     }, [selectedGames] )
-    console.log('this is the setCheap2:',cheapSharkGameData)
+    // console.log('this is the setCheap2:',cheapSharkGameData)
   return (
     <div className='RenderedGames'>
       <h1>Your Wishlist!</h1>
