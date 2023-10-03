@@ -79,8 +79,8 @@ const onSearch = (searchValue) => {
   }
   return (
     <div>
+     <AuthProvider>
     <Header />
-    <AuthProvider>
       <Switch>
         <ProtectedRoute path="/wishlist">
             <FavGames />
