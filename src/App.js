@@ -15,19 +15,19 @@ function App() {
   const [searchResults, setSearchResults] = useState([])
   const [selectedGames, setSelectedGames] = useState([])
 
-  const handleRemove = async (index) => {
-    const gameIndexToRemove = index + 1
-      console.log(`this is the index:`, gameIndexToRemove)
+  const handleRemove = async (id) => {
+    const gameToRemove = id
+      console.log(`this is the index:`, gameToRemove)
 
         try {
-        const deleteResponse = await fetch(`http://localhost:4000/user/${gameIndexToRemove}`, {
+        const deleteResponse = await fetch(`http://localhost:4000/user/${gameToRemove}`, {
           method: 'DELETE',
           headers: {
             'content-Type': 'Application/json',
           },
         })
         if (!deleteResponse.ok) {
-          throw new Error(`Failed To Remove game with index ${gameIndexToRemove}`);
+          throw new Error(`Failed To Remove game with index ${gameToRemove}`);
         }
 
         const fetchResponse = await fetch('http://localhost:4000/User');
@@ -37,26 +37,9 @@ function App() {
     
         const dbData = await fetchResponse.json();
 
-        const userIDs = dbData.map((user) => user.id);
-        const patchedData = dbData.forEach((user, index) => {
-          user.id = index + 1 ;
-            });
-            const putResponse = await fetch('http://localhost:4000/User', {
-              method: 'PUT',
-              headers: {
-                'Content-type': 'application/json',
-              },
-              body: JSON.stringify(dbData),
-            });
-        
-            if (!putResponse.ok) {
-              throw new Error('Failed to update data on the server');
-            }
-        
             console.log('Data updated:', dbData);
         // Filter the selectedGames array based on the index
-        const updatedSelectedGames = selectedGames.filter((game, idx) => idx !== gameIndexToRemove);
-        setSelectedGames(updatedSelectedGames);
+        setSelectedGames(dbData);
       } catch (error) {
         console.error(error);
       }

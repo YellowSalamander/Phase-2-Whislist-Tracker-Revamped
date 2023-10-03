@@ -7,9 +7,10 @@ function SearchResults({ searchResults, onSelect }) {
   const handleSelect = (selectedGame) => {
     // Create a new object with only the 'external' property
     const requestData = { 
+      id:  selectedGame.gameID,
       gameID: selectedGame.gameID,
     gameTitle: selectedGame.external };
-
+      console.log('this is requestData', requestData)
     setSelectedGame(selectedGame);
 
     fetch('http://localhost:4000/User', {

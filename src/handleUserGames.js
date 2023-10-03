@@ -23,7 +23,8 @@ function HandleUserGames({selectedGames, onRemove}) {
               throw new Error(`Fetch failed for game ID ${id}`)
             }
             const data = await response.json()
-            // console.log('this is the second fetch:', data)
+            data.id= id
+            console.log('this is the second fetch:', data)
             return data
           });
           const gameDataList = await Promise.all(promises);
@@ -34,20 +35,20 @@ function HandleUserGames({selectedGames, onRemove}) {
 
       })
     }, [selectedGames] )
-    // console.log('this is the setCheap2:',cheapSharkGameData)
+    console.log('this is the setCheap2:',cheapSharkGameData)
   return (
     <div className='RenderedGames'>
       <h1>Your Wishlist!</h1>
       <ul className='RenderedGamesContainer'>
-        {cheapSharkGameData.map((game, index)=> (
+        {cheapSharkGameData.map((game)=> (
           
-          <li key={index} className='GameTitleRender'>
+          <li key={game.id} className='GameTitleRender'>
             <h2 id="title">{game.info.title}</h2>
           <img src={game.info.thumb} className='RenderGameThumb'></img>
           <p  id= "pa1">Cheapest Price Ever: {game.cheapestPriceEver.price} </p>
           <p  id= "pa2">Current Cheapest Price: {game.deals[0].price}</p>
           <button className='GetDeal'>Get deal!</button>
-          <button className='Remove' data-game-index={index+1} onClick={(e)=>onRemove(index)}> Remove </button>
+          <button className='Remove' onClick={(e)=> {onRemove(game.id)}}> Remove </button>
           </li>
             
         ))}
