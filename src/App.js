@@ -2,10 +2,8 @@ import React, {useState, useEffect} from "react";
 import LogIn from "./LogIn";
 import Header from './Header'
 import About from './About'; 
-import SearchBar from "./SearchBar.js";
 import FavGames from "./FavGames";
-import SearchResults from './SearchResults'; 
-import HandleUserGames from './handleUserGames'
+import Wishlist from "./Wishlist";
 import { Route, Switch } from 'react-router-dom';
 import { AuthProvider } from "./AuthContext";
 import ProtectedRoute from "./ProtectedRoute";
@@ -38,7 +36,6 @@ function App() {
         const dbData = await fetchResponse.json();
 
             console.log('Data updated:', dbData);
-        // Filter the selectedGames array based on the index
         setSelectedGames(dbData);
       } catch (error) {
         console.error(error);
@@ -66,10 +63,9 @@ const onSearch = (searchValue) => {
     <Header />
       <Switch>
         <ProtectedRoute path="/wishlist">
-            <FavGames />
-            <SearchBar onSearch={onSearch} />
-            <SearchResults searchResults={searchResults} onSelect={handleSelect} />
-            <HandleUserGames selectedGames={selectedGames} onRemove={handleRemove} />
+        <FavGames />
+          <Wishlist onSearch={onSearch} searchResults={searchResults} onSelect={handleSelect} selectedGames={selectedGames}
+          onRemove={handleRemove} />
         </ProtectedRoute>
         <Route path="/about" component={About} />
         <Route path="/" component={LogIn} />
