@@ -5,7 +5,7 @@ import Wishlist from "./Wishlist";
 import NavBar from "./NavBar";
 import { Route, Switch } from 'react-router-dom';
 import { AuthProvider } from "./AuthContext";
-import ProtectedRoute from "./ProtectedRoute";
+
 
 
 function App() {
@@ -59,12 +59,12 @@ const onSearch = (searchValue) => {
   return (
     <div>
      <AuthProvider>
-    <NavBar />
+       <NavBar />
       <Switch>
-        <ProtectedRoute path="/wishlist">
+        <Route path="/wishlist">
           <Wishlist onSearch={onSearch} searchResults={searchResults} onSelect={handleSelect} selectedGames={selectedGames}
           onRemove={handleRemove} />
-        </ProtectedRoute>
+        </Route>
         <Route path="/about" component={About} />
         <Route path="/" component={LogIn} />
       </Switch>

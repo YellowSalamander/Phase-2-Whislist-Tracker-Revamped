@@ -40,9 +40,11 @@ function NavBar() {
                 <header>
                     <h1>Wishlist Deal Tracker</h1>
                     <nav className='navbar'>
-                        <NavLink to="/wishlist" className="navbar-item" onClick={handleSeachGamesClick}>Search Games</NavLink>
                         <NavLink to="/" className="navbar-item">Log In</NavLink>
                         <NavLink to="/about" className="navbar-item">About</NavLink>
+                        {isLoggedIn && (
+                        <NavLink to="/wishlist" className="navbar-item" onClick={handleSeachGamesClick}>Search Games</NavLink>
+                        )}
                     </nav>
                 </header>
             </div>
