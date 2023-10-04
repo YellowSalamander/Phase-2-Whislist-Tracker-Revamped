@@ -8,7 +8,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
   return (
     <Route
       {...rest}
-        render={(props) =>
+        children={(props) =>
         isLoggedIn ? (
           <Component {...props} />
         ) : (

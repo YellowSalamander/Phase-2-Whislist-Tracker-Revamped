@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from "react";
 import LogIn from "./LogIn";
-import Header from './Header'
 import About from './About'; 
-import FavGames from "./FavGames";
 import Wishlist from "./Wishlist";
+import NavBar from "./NavBar";
 import { Route, Switch } from 'react-router-dom';
 import { AuthProvider } from "./AuthContext";
 import ProtectedRoute from "./ProtectedRoute";
@@ -60,10 +59,9 @@ const onSearch = (searchValue) => {
   return (
     <div>
      <AuthProvider>
-    <Header />
+    <NavBar />
       <Switch>
         <ProtectedRoute path="/wishlist">
-        <FavGames />
           <Wishlist onSearch={onSearch} searchResults={searchResults} onSelect={handleSelect} selectedGames={selectedGames}
           onRemove={handleRemove} />
         </ProtectedRoute>
@@ -81,39 +79,3 @@ export default App;
 
 
 
-
-
-// const userIDs = dbData.map((user) => user.id);
-// const patchedData = dbData.forEach((user, index) => {
-//   user.id = index + 1 ;
-// });
-
-// console.log('This is user IDs', userIDs);
-// console.log('this is dbData', dbData);
-// console.log('This is patchedData:', patchedData)
-
-// // this is additional fetch below is to update the id's on the db.json server so that after removal the array id always matches the one fetched by the API
-// const patchRequests = userIDs.map((userID) => {
-//   return fetch(`http://localhost:4000/User/${userID}`, {
-//     method: 'PATCH',
-//     headers: {
-//       'Content-type': 'application/json',
-//     },
-//     body: JSON.stringify({ id: dbData }),
-//   }).then((response) => {
-//     if (!response.ok) {
-//       throw new Error('Failed to Patch ids');
-//     }
-//   });
-// });
-
-
-// await Promise.all(patchRequests);
-
-// // Filter the selectedGames array based on the index
-// const updatedSelectedGames = selectedGames.filter((game, idx) => idx !== gameIndexToRemove);
-// setSelectedGames(updatedSelectedGames);
-// } catch (error) {
-// console.error(error);
-// }
-// };

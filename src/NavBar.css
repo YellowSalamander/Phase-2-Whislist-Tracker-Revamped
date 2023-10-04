@@ -67,4 +67,34 @@
     padding: 5px;
     font-size: 28px;
   }
+  .banner{
+    background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);;
+    padding: 10px; /* Add padding to create a box effect */
+    text-align: center; /* Center the content */
+    border-radius: 5px; /* Add border radius for a rounded appearance */
+    padding: 20px;
+    text-align: center;
+  }
+  .navbar {
+    display: flex; /* Use flexbox to display items horizontally */
+    justify-content: center; /* Center items horizontally within the navbar */
+    list-style: none; /* Remove default list styles */
+    padding: 0; /* Remove default padding */
+    width: auto;
+  }
+
+  .navbar-item {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
+    color: #fff; /* Set text color to contrast with the background */
+    border: 1px solid black; /* Add a border */
+    border-radius: 4px; /* Add some border radius for a button-like appearance */
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add a smooth hover effect */
+  }
   
+    
