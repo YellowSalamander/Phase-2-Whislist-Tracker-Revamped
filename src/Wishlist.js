@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import "./Wishlist.css"
+import { findAllByTestId } from '@testing-library/react';
 
 function Wishlist({onSearch,onSelect,onRemove,searchResults, selectedGames }){
     const[searchValue, setSearchValue] = useState('')
     const [selectedGame, setSelectedGame]= useState([])
     const [cheapSharkGameData, setCheapSharkGameData] = useState([])
+    const [isGameSelected, setIsGameSelected] = useState(false)
+
 
     //---- Initial render of games alreaddy on db.json happens below:----//
     useEffect(()=> {
@@ -62,7 +65,7 @@ function Wishlist({onSearch,onSelect,onRemove,searchResults, selectedGames }){
             gameTitle: selectedGame.external
         }
         setSelectedGame(selectedGame)
-
+        setIsGameSelected(true)
         fetch(`http://localhost:4000/User`, {
             method: 'POST',
             headers: {
@@ -88,22 +91,25 @@ function Wishlist({onSearch,onSelect,onRemove,searchResults, selectedGames }){
                     onKeyDown={handleKeyPress}/>
                 <button type="submit" id = 'search-button'>Search</button>
             </form>
-            <div className="search-results">
-                 {searchResults.map((game) => (
-                    <div key={game.gameID} className="search-result-item">
-                <div className="result-header">
-                    <h2>{game.external}</h2>
-                </div>
-                <div className="result-content">
-                    <img src={game.thumb} alt={game.external} />
-                <div>
-                    <p>Game Title: {game.external}</p>
-                    <p>Sale Price: ${game.cheapest}</p>
-                </div>
-                 </div>
-                <button onClick={() => { handleSelect(game); onSelect(game) }} id="select-buttons">Select</button>
+            <div>
+                <div className={`search-results ${isGameSelected ? 'hide-search-results' : ''}`}>
+                    {searchResults.map((game) => (
+                        <div key={game.gameID} className="search-result-item">
+                            <div className="result-header">
+                                 <h2>{game.external}</h2>
+                            </div>
+                        <div className="result-content">
+                            <img src={game.thumb} alt={game.external} />
+                        <div>
+                             <p>Game Title: {game.external}</p>
+                            <p>Sale Price: ${game.cheapest}</p>
+                         </div>
+                        </div>
+                             <button onClick={() => { handleSelect(game); onSelect(game) }} id="select-buttons">Select</button>
                 </div>
                     ))}
+            </div>
+
             </div>
             <div className='RenderedGames'>
                     <h1>Your Wishlist!</h1>

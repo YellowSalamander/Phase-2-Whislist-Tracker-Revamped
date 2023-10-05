@@ -172,3 +172,7 @@
           cursor: pointer; /* Show cursor pointer on hover */
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
       }
+
+      .hide-search-results{
+        display: none;
+      }
