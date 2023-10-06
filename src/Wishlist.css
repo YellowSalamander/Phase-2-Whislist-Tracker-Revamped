@@ -68,6 +68,7 @@
         border: 2px solid rgb(78, 99, 131); /* Add a border around the input */
         border-radius: 5px; /* Add border radius for a rounded appearance */
         width: 1000px;
+        max-width: auto;
     }
     
     #search-button {
