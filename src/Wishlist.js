@@ -12,7 +12,7 @@ function Wishlist({onSearch,onSelect,onRemove,searchResults,renderedGames, }){
     //---- Initial render of games alreaddy on db.json happens below:----//
     useEffect(()=> {
         //Step 1 : Fetch dt from db.json (if any, for rendering)
-        fetch('http://localhost:4000/user')
+        fetch(`https://phase-2-db-server.onrender.com/user`)
         .then((response) => response.json())
         .then((data) => {
             //Step 2: extracting the fetched data
@@ -69,7 +69,7 @@ function Wishlist({onSearch,onSelect,onRemove,searchResults,renderedGames, }){
             gameTitle: selectedGame.external
         }
         setSelectedGame(selectedGame)
-        fetch(`http://localhost:4000/User`, {
+        fetch(`https://phase-2-db-server.onrender.com/user`, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',

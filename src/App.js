@@ -19,7 +19,7 @@ function App() {
       console.log(`this is the index:`, gameToRemove)
 
         try {
-        const deleteResponse = await fetch(`http://localhost:4000/user/${gameToRemove}`, {
+        const deleteResponse = await fetch(`https://phase-2-db-server.onrender.com/user${gameToRemove}`, {
           method: 'DELETE',
           headers: {
             'content-Type': 'Application/json',

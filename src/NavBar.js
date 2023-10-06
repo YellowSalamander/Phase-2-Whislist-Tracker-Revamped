@@ -10,7 +10,7 @@ function NavBar({onGamefromNavBar}) {
 
     //------- We fetch the FavGames from the db.json and shuffle it here for render-------//
     useEffect(()=> {
-        fetch('http://localhost:4000/FavGames')
+        fetch(`https://phase-2-db-server.onrender.com/FavGames`)
         .then((response) => response.json())
         .then((data) => {
             const shuffledGames = shuffleArray(data);
