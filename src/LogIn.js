@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './LogIn.css'
 import { useAuth } from './AuthContext';
 import { useHistory } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -39,7 +40,7 @@ const LogIn = () => {
   };
 
   return (
-    <div>
+    <div className='form-container'>
     <h2>{isLoggedIn ? 'Logged In' : 'Login'}</h2>
     {isLoggedIn ? (
       <div>
@@ -52,23 +53,25 @@ const LogIn = () => {
       </div>
     ) : (
       <form>
-        <div>
-          <label>Username:</label>
+        <div className='form-group'>
+          <label className='label'>Username:</label>
           <input
+          className='input'
             type="text"
             value={username}
             onChange={handleUsernameChange}
           />
         </div>
-        <div>
-            <label>Password:</label>
+        <div className='form-group'>
+            <label className='label'>Password:</label>
             <input
+            className='input'
               type="password"
               value={password}
               onChange={handlePasswordChange}
             />
           </div>
-          <button type="button" onClick={handleLogin}>
+          <button className='button' type="button" onClick={handleLogin}>
             Login
           </button>
         </form>
