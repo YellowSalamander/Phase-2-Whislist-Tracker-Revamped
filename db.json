@@ -4,54 +4,38 @@
       "gameID": "202278",
       "gameTitle": "Baldur's Gate 3",
       "thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/capsule_sm_120.jpg?t=1695393586",
-      "id": 1
+      "id": 202278
     },
     {
       "gameID": "173119",
       "gameTitle": "Divinity: Original Sin 2 - Divine Edition",
       "thumb": "https://images.gog-statics.com/e2755aa6e3d99745ee8e45eb5c7c5ef46f819145265b2f90f2121201e34bfea7_product_tile_117h.webp",
-      "id": 2
+      "id": 173119
     },
     {
       "gameID": "223590",
       "gameTitle": "Project Wingman",
       "thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/895870/capsule_sm_120.jpg?t=1625008344",
-      "id": 3
+      "id": 173119
     },
     {
       "gameID": "236717",
       "gameTitle": "Elden Ring",
       "thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/capsule_sm_120.jpg?t=1683618443",
-      "id": 4
+      "id": 236717
     },
     {
       "gameID": "170170",
       "gameTitle": "Code Vein",
       "thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/678960/capsule_sm_120.jpg?t=1676860712",
-      "id": 5
+      "id": 170170
     },
     {
       "gameID": "141156",
       "gameTitle": "STAR WARS: Knights of the Old Republic II - The Sith Lords",
       "thumb": "https://cdn.cloudflare.steamstatic.com/steam/apps/208580/capsule_sm_120.jpg?t=1683660620",
-      "id": 6
+      "id": 141156
     }
   ],
-  "user": [
-    {
-      "id": "211333",
-      "gameID": "211333",
-      "gameTitle": "The Test"
-    },
-    {
-      "id": "247890",
-      "gameID": "247890",
-      "gameTitle": "Pirates Things"
-    },
-    {
-      "id": "193006",
-      "gameID": "193006",
-      "gameTitle": "PROTEST"
-    }
-  ]
+  "user": []
 }

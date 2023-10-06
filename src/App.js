@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import LogIn from "./LogIn";
 import About from './About'; 
 import Wishlist from "./Wishlist";
@@ -10,7 +10,9 @@ import { AuthProvider } from "./AuthContext";
 
 function App() {
   const [searchResults, setSearchResults] = useState([])
-  const [selectedGames, setSelectedGames] = useState([])
+  const [renderedGames, setRenderedGames] = useState([''])
+
+ 
 
   const handleRemove = async (id) => {
     const gameToRemove = id
@@ -35,7 +37,7 @@ function App() {
         const dbData = await fetchResponse.json();
 
             console.log('Data updated:', dbData);
-        setSelectedGames(dbData);
+        setRenderedGames(dbData);
       } catch (error) {
         console.error(error);
       }
@@ -53,16 +55,24 @@ const onSearch = (searchValue) => {
   const handleSelect = (selectedGame) => {
     // Handle the selection of a game here
     console.log('Selected Game:', selectedGame);
-    setSelectedGames((prevSelectedGames) => [...prevSelectedGames, selectedGame]);
+    //Extremely important, giving time to the fetch request to complete before setRender... 
+    setTimeout(()=>{
+      setRenderedGames((prevRenderedGames) => [...prevRenderedGames, selectedGame])
+      console.log('This is in App.js handleSelect',renderedGames);
+    }, 500)
+   
+    
 
   }
+
+  console.log(renderedGames)
   return (
     <div>
      <AuthProvider>
        <NavBar />
       <Switch>
         <Route path="/wishlist">
-          <Wishlist onSearch={onSearch} searchResults={searchResults} onSelect={handleSelect} selectedGames={selectedGames}
+          <Wishlist onSearch={onSearch} searchResults={searchResults} onSelect={handleSelect} renderedGames={renderedGames}
           onRemove={handleRemove} />
         </Route>
         <Route path="/about" component={About} />

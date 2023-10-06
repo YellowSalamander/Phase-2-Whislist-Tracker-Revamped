@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import "./Wishlist.css"
-import { findAllByTestId } from '@testing-library/react';
 
-function Wishlist({onSearch,onSelect,onRemove,searchResults, selectedGames }){
+
+function Wishlist({onSearch,onSelect,onRemove,searchResults,renderedGames, }){
     const[searchValue, setSearchValue] = useState('')
-    const [selectedGame, setSelectedGame]= useState([])
     const [cheapSharkGameData, setCheapSharkGameData] = useState([])
-    const [isGameSelected, setIsGameSelected] = useState(false)
+    const [selectedGame, setSelectedGame] = useState(null)
 
 
     //---- Initial render of games alreaddy on db.json happens below:----//
@@ -36,7 +35,7 @@ function Wishlist({onSearch,onSelect,onRemove,searchResults, selectedGames }){
  
             fetchData()
         });
-    }, [selectedGames]);
+    }, [renderedGames]);
 
     // console.log('This is the external API fetch of db.json:', cheapSharkGameData)
 
@@ -59,13 +58,13 @@ function Wishlist({onSearch,onSelect,onRemove,searchResults, selectedGames }){
 //---- Here we handle the POST request to the db.json once a game has been selected ----//
 
     const handleSelect = (selectedGame) => {
+        // console.log(`HandleSelect is being called with:`, selectedGame)
         const requestData = {
             id: selectedGame.gameID,
             gameID: selectedGame.gameID,
             gameTitle: selectedGame.external
         }
         setSelectedGame(selectedGame)
-        setIsGameSelected(true)
         fetch(`http://localhost:4000/User`, {
             method: 'POST',
             headers: {
@@ -75,9 +74,11 @@ function Wishlist({onSearch,onSelect,onRemove,searchResults, selectedGames }){
         })
         .then((r) => r.json())
         .then ((data) => {
-            console.log(`POST request:`, data)
+            // console.log(`POST request:`, data)
         });
     };
+
+ 
 
 
     return(
@@ -92,7 +93,7 @@ function Wishlist({onSearch,onSelect,onRemove,searchResults, selectedGames }){
                 <button type="submit" id = 'search-button'>Search</button>
             </form>
             <div>
-                <div className={`search-results ${isGameSelected ? 'hide-search-results' : ''}`}>
+                <div className={`search-results`}>
                     {searchResults.map((game) => (
                         <div key={game.gameID} className="search-result-item">
                             <div className="result-header">
@@ -113,19 +114,23 @@ function Wishlist({onSearch,onSelect,onRemove,searchResults, selectedGames }){
             </div>
             <div className='RenderedGames'>
                     <h1>Your Wishlist!</h1>
-                    <ul className='RenderedGamesContainer'>
-                        {cheapSharkGameData.map((game) =>(
+                        <ul className='RenderedGamesContainer'>
+                        {cheapSharkGameData.length === 0 ? (
+                            <p className='NoGames'>No games on Wishlist!</p>
+                        ) : (
+                        cheapSharkGameData.map((game) => (
                             <li key={game.id} className='GameTitleRender'>
-                                <h2 id="title">{game.info.title}</h2>
-                                <img src={game.info.thumb} className='RenderGameThumb'></img>
-                                <p  id= "pa1">Cheapest Price Ever: {game.cheapestPriceEver.price} </p>
-                                <p  id= "pa2">Current Cheapest Price: {game.deals[0].price}</p>
-                                <button className='GetDeal'>Get deal!</button>
-                                <button className='Remove' onClick={(e)=> {onRemove(game.id)}}> Remove </button>
-                            </li>
-                        ))}    
-                    </ul>                    
-            </div>
+                                 <h2 id="title">{game.info.title}</h2>
+                                 <img src={game.info.thumb} className='RenderGameThumb'></img>
+                                <p id="pa1">Cheapest Price Ever: {game.cheapestPriceEver.price}</p>
+                                 <p id="pa2">Current Cheapest Price: {game.deals[0].price}</p>
+                                 <button className='GetDeal'>Get deal!</button>
+                                 <button className='Remove' onClick={(e) => { onRemove(game.id) }}> Remove </button>
+                             </li>
+                            ))
+                            )}
+                        </ul>
+                </div>
         </div>
     )
 }
