@@ -1,6 +1,6 @@
-### flatiron-frontend-phase-1-project
+### flatiron-frontend-phase-2-project
 # Wishlist Deal Tracker
-This is a JavaScript application that allows users to search for games they wanna purchase using the CheapShark API and utilize it to find the best price accross multiple store-fronts. Users can enter a search term and retrieve a list of games that match the search. They can then select games from the search results and add them to their selected games list for further tracking as the prices are fetched in real time. The page also re-directs you to the correct store-front were the best deal is being hosted (mock response at the time)
+This is a JavaScript REACT application that allows users to search for games they wanna purchase using the CheapShark API and utilize it to find the best price accross multiple store-fronts. Users can enter a search term and retrieve a list of games that match the search. They can then select games from the search results and add them to their selected games list for further tracking as the prices are fetched in real time. The page also re-directs you to the correct store-front were the best deal is being hosted (mock response at the time)
 
 ## Prerequisites
 Before running this application, ensure that you have the following:
@@ -12,11 +12,12 @@ Before running this application, ensure that you have the following:
 No installation is required for this application. Simply open the index.html file in your web browser.
 
 ## Usage
-1. Open the index.html file in your web browser.
-2. Enter a search term in the search bar and click the "Search" button.
-3. The search results will be displayed below the search bar.
-4. To select a game from the search results, click the "Select" button associated with the game.
-5. The selected games will be displayed in the "Selected Games" section.
+1. Open the page URL on your web browser
+2. Log in using the Admin credentials
+3. Enter a search term in the search bar and click the "Search" button.
+4. The search results will be displayed below the search bar.
+5. To select a game from the search results, click the "Select" button associated with the game.
+6. The selected games will be displayed in the "Wishlist" section.
 6. To remove a game from the selected games, click the "Remove Game" button associated with the game.
 7. The "Favorite Games" section displays a list of pre-selected games with their cheapest prices.
 8. Click the "Get Deal" button to view a deal for a specific game (this is a simulated action).
@@ -24,7 +25,7 @@ No installation is required for this application. Simply open the index.html fil
 ## Development
 If you want to modify or enhance this application, follow these steps:
 
-1. Fork and clone this repository. [https://github.com/YellowSalamander/flatiron-frontend-phase-1-project]
+1. Fork and clone this repository. [https://github.com/YellowSalamander/Phase-2-Whislist-Tracker-Revamped-Front-end]
 2. Open the project in your preferred code editor.
 3. Make the desired changes to the JavaScript code.
 4. Test the application locally to ensure it functions as expected.
@@ -32,9 +33,9 @@ If you want to modify or enhance this application, follow these steps:
 6. Create a pull request to merge your changes into the main repository.
 
 ## Future Development:
-1. Add functionality that will show the Original Price of the game.
-2. Set up a way to make the selected games a permanent change to the server [JSON server]
-3. Add a way for different users to keep track of their desired games separately (User account system?)
+1. Continue Developing user accounts for accessing selected games anywhere!
+2. Work on additional protections for ./wishlist unless user is logged in
+3. Additional tweaks on CSS
 
 ## Credits
 This application utilizes the CheapShark API to retrieve game data.
