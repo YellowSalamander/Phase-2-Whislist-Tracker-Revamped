@@ -19,7 +19,7 @@ function App() {
       console.log(`this is the index:`, gameToRemove)
 
         try {
-        const deleteResponse = await fetch(`https://phase-2-db-server.onrender.com/user${gameToRemove}`, {
+        const deleteResponse = await fetch(`https://phase-2-db-server.onrender.com/user/${gameToRemove}`, {
           method: 'DELETE',
           headers: {
             'content-Type': 'Application/json',
@@ -29,7 +29,7 @@ function App() {
           throw new Error(`Failed To Remove game with index ${gameToRemove}`);
         }
 
-        const fetchResponse = await fetch('http://localhost:4000/User');
+        const fetchResponse = await fetch(`https://phase-2-db-server.onrender.com/user`);
         if (!fetchResponse.ok) {
           throw new Error('Failed to fetch updated data');
         }

@@ -174,3 +174,7 @@
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle box shadow */
       }
 
+.NoGames{
+font-weight: bolder;
+font-size: 20px;
+}
