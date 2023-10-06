@@ -6,6 +6,7 @@ function Wishlist({onSearch,onSelect,onRemove,searchResults,renderedGames, }){
     const[searchValue, setSearchValue] = useState('')
     const [cheapSharkGameData, setCheapSharkGameData] = useState([])
     const [selectedGame, setSelectedGame] = useState(null)
+    const [resultsRender, setResultsRender] = useState('none')
 
 
     //---- Initial render of games alreaddy on db.json happens below:----//
@@ -41,6 +42,7 @@ function Wishlist({onSearch,onSelect,onRemove,searchResults,renderedGames, }){
 
 //---- search bar element and handling occurs here: ----//
 
+
     const handleSearchChange = (e) => {
         setSearchValue(e.target.value);
     };
@@ -48,6 +50,7 @@ function Wishlist({onSearch,onSelect,onRemove,searchResults,renderedGames, }){
     const handleSearchSubmit = (e) => {
         e.preventDefault();
         onSearch(searchValue);
+        setResultsRender('inline-block')
     }
     const handleKeyPress =(e)=> {
         if (e.key === 'Enter'){
@@ -59,6 +62,7 @@ function Wishlist({onSearch,onSelect,onRemove,searchResults,renderedGames, }){
 
     const handleSelect = (selectedGame) => {
         // console.log(`HandleSelect is being called with:`, selectedGame)
+        setResultsRender('none')
         const requestData = {
             id: selectedGame.gameID,
             gameID: selectedGame.gameID,
@@ -93,7 +97,7 @@ function Wishlist({onSearch,onSelect,onRemove,searchResults,renderedGames, }){
                 <button type="submit" id = 'search-button'>Search</button>
             </form>
             <div>
-                <div className={`search-results`}>
+                <div className={`search-results`} style={{display: resultsRender}}>
                     {searchResults.map((game) => (
                         <div key={game.gameID} className="search-result-item">
                             <div className="result-header">

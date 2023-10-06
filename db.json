@@ -37,5 +37,11 @@
       "id": 141156
     }
   ],
-  "user": []
+  "user": [
+    {
+      "id": "211333",
+      "gameID": "211333",
+      "gameTitle": "The Test"
+    }
+  ]
 }
