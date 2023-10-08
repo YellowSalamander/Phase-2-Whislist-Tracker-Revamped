@@ -1,6 +1,6 @@
 body {
-  background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
-
+  background-image: linear-gradient(to bottom right, #38A2D7, #561139);
+  
   p, h1, h2, h3, h4, h5, h6 {
     color: black;
     -webkit-text-stroke: 0.2px black;
