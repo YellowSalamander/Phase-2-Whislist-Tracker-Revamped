@@ -126,8 +126,8 @@ function Wishlist({onSearch,onSelect,onRemove,searchResults,renderedGames, }){
                             <li key={game.id} className='GameTitleRender'>
                                  <h2 id="title">{game.info.title}</h2>
                                  <img src={game.info.thumb} className='RenderGameThumb'></img>
-                                <p id="pa1">Cheapest Price Ever: {game.cheapestPriceEver.price}</p>
-                                 <p id="pa2">Current Cheapest Price: {game.deals[0].price}</p>
+                                <p id="pa1">Cheapest Price Ever: $ {game.cheapestPriceEver.price}</p>
+                                 <p id="pa2">Current Cheapest Price: $ {game.deals[0].price}</p>
                                  <button className='GetDeal' onClick={(e)=> {alert(`Pretend you're being redirected to Storefront Check-out`)}}>Get deal!</button>
                                  <button className='Remove' onClick={(e) => { onRemove(game.id) }}> Remove </button>
                              </li>
