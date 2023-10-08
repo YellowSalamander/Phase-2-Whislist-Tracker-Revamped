@@ -17,7 +17,7 @@ function About() {
 
             <h2>Why {title}</h2>
                 <p>We understand that gaming can be an expensive hobby, and finding the best deals can be a time-consuming process. That's where 
-                    {title} comes in. We're here to simplify your gaming experience by providing you with up-to-date information on 
+                     {title} comes in. We're here to simplify your gaming experience by providing you with up-to-date information on 
                     game prices and deals, all in one place.</p>
 
             <h2>Our Mission</h2>

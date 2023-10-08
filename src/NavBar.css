@@ -12,9 +12,9 @@
   .game-boxes-container {
     display: flex; /* Create a flex container for game boxes */
     flex-direction: row; /* Make game boxes render horizontally */
-    flex-wrap: wrap; /* Allow game boxes to wrap to the next row if needed */
+    flex-wrap: wrap; 
     justify-content: space-between; /* Add space between game boxes */
-    width: 100%; /* Ensure the container takes full width */
+    width: 100%; /* Ensure the container takes full width, otherwise it will render based on screen resolution, i think?*/
   }
 
   .header-container {
